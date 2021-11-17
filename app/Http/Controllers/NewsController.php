@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
@@ -34,6 +35,7 @@ class NewsController extends Controller
         ]);
 
         $data = $request->all();
+        $data['slug'] = Str::of($request->get('title'))->slug('-');
         if ($request->hasFile('thumb')) {
             $data['thumb'] = $request->file('thumb')->store('', 'images');
         }

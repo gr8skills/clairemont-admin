@@ -55,7 +55,7 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h4 class="mb-0">Sponsors</h4>
-                <a href="{{route('sponsors-create')}}" class="btn btn-sm btn-info">Add new</a>
+                <a href="#" class="btn btn-sm btn-info">Add new</a>
             </div>
         </div>
         <div class="card-body">
