@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['register' => false]);
 Route::get('/unauthorized', [App\Http\Controllers\HomeController::class, 'unauthorizedView'])->name('unauthorized');
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::prefix('pages')->group(function () {
