@@ -89,13 +89,13 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('article') }}"
-                       class="nav-link {{ $route === 'article' ? 'active' : ''}}">
-                        <i class="nav-icon fas fa-scroll"></i>
-                        <p>Articles</p>
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{ route('article') }}"--}}
+{{--                       class="nav-link {{ $route === 'article' ? 'active' : ''}}">--}}
+{{--                        <i class="nav-icon fas fa-scroll"></i>--}}
+{{--                        <p>Articles</p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a href="{{ route('site-setting') }}"
                        class="nav-link {{ $route === 'site-setting' ? 'active' : ''}}">

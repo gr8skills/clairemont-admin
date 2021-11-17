@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+    protected $appends = ['excerpt'];
+
+    public function getExcerptAttribute()
+    {
+        return strip_tags(substr($this->getAttribute('content'), 0, 300)) . ' ...';
+    }
 }

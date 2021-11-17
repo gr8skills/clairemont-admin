@@ -230,5 +230,5 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-
+    'front_url' => env('FRONT_URL'),
 ];

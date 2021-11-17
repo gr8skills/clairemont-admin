@@ -17,175 +17,56 @@ class PageController extends Controller
         ]);
     }
 
-    public function aboutHome()
-    {
-
-    }
-
-    public function aboutMeetHead()
-    {
-
-    }
-
-    public function aboutEducationalPhilosophy()
-    {
-
-    }
-
-    public function aboutVirtualTour()
-    {
-
-    }
-
-    public function aboutPartnershipParents()
-    {
-
-    }
-
-    public function aboutContact()
-    {
-
-    }
-
     // Academics
     public function academics()
     {
-        return view('pages.academics');
-    }
+        $pages = Page::where('page_category_id', 2)->with('category')->get();
 
-    public function academicsFacilities()
-    {
-
-    }
-
-    public function academicsJuniorSchool()
-    {
-
-    }
-
-    public function academicsSeniorSchool()
-    {
-
-    }
-
-    public function academicsLibrary()
-    {
-
-    }
-
-    public function academicsCalendar()
-    {
-
+        return view('pages.academics')->with([
+            'pages' => $pages
+        ]);
     }
 
     // Admission
     public function admission()
     {
-        return view('pages.admission');
-    }
+        $pages = Page::where('page_category_id', 3)->with('category')->get();
 
-    public function admissionProcedure()
-    {
-
-    }
-
-    public function admissionTuition()
-    {
-
-    }
-
-    public function admissionScholarship()
-    {
-
-    }
-
-    public function admissionFAQ()
-    {
-
-    }
-
-    public function admissionApply()
-    {
-
+        return view('pages.admission')->with([
+            'pages' => $pages
+        ]);
     }
 
     // Student Life
     public function studentLife()
     {
-        return view('pages.student-life');
-    }
+        $pages = Page::where('page_category_id', 5)->with('category')->get();
 
-    public function studentLifeIndex()
-    {
-
-    }
-
-    public function studentLifeTraditions()
-    {
-
-    }
-
-    public function studentLifeLeadership()
-    {
-
-    }
-
-    public function studentLifeService()
-    {
-
-    }
-
-    public function studentLifeClubActivities()
-    {
-
-    }
-
-    public function studentLifeMentoring()
-    {
-
+        return view('pages.student-life')->with([
+            'pages' => $pages
+        ]);
     }
 
     // Giving
     public function giving()
     {
-        return view('pages.giving');
-    }
+        $pages = Page::where('page_category_id', 6)->with('category')->get();
 
-    public function givingWhyGive()
-    {
-
-    }
-
-    public function givingFAQ()
-    {
-
-    }
-
-    public function givingHowTo()
-    {
-
+        return view('pages.giving')->with([
+            'pages' => $pages
+        ]);
     }
 
     // Parents
     public function parents()
     {
-        return view('pages.parents');
+        $pages = Page::where('page_category_id', 7)->with('category')->get();
+
+        return view('pages.parents')->with([
+            'pages' => $pages
+        ]);
     }
 
-    public function parentsNafad()
-    {
-
-    }
-
-    public function parentsDigitalSafety()
-    {
-
-    }
-
-    public function parentsLunchMenu()
-    {
-
-    }
 
     public function editPage($slug) {
         $page = Page::where('slug', $slug)->firstOrFail();
