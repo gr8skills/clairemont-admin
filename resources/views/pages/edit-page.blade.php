@@ -42,19 +42,11 @@
                         <div class="form-group">
                             <label for="banner">Banner</label>
                             <input type="file" accept="image/*" class="form-control" id="banner" name="banner">
-{{--                            <button class="btn btn-info"--}}
-{{--                                    id="bannerFileButton"--}}
-{{--                                    type="button"--}}
-{{--                                    @if($page->footer_image !== null) disabled @endif>Pick a file</button>--}}
                         </div>
 
                         <div class="form-group">
                             <label for="footerImage">Footer image</label><br>
                             <input type="file" accept="image/*" class="form-control" id="footerImage" name="footerImage">
-{{--                            <button class="btn btn-info"--}}
-{{--                                    id="footerFileButton"--}}
-{{--                                    type="button"--}}
-{{--                                    @if($page->footer_image !== null) disabled @endif>Pick a file</button>--}}
                         </div>
 
                         <label for="summernote">Content</label>
@@ -75,7 +67,8 @@
 
 @section('page-scripts')
     <script>
-        $('#summernote').summernote('pasteHTML', {{ $page->content ?? '' }}).addClass('editor-height');
+        var content = "{!! addcslashes($page->content ?? '', '"') !!}";
+        $('#summernote').summernote('pasteHTML', content).addClass('editor-height');
 
         $('#bannerFileButton').on('click', function (evt) {
             $('#banner').click();
