@@ -6,7 +6,8 @@ Auth::routes(['register' => false]);
 Route::get('/unauthorized', [App\Http\Controllers\HomeController::class, 'unauthorizedView'])->name('unauthorized');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::redirect('/' , '/pages/about');
 
     Route::prefix('pages')->group(function () {
         Route::get('/about', [\App\Http\Controllers\PageController::class, 'about'])->name('about');
