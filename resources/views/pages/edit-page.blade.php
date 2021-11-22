@@ -28,7 +28,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="title">Title</label>
-                                    <input type="text" class="form-control" id="title" readonly value="{{ ucwords($page->title) }}">
+                                    <input type="text" class="form-control" id="title" name="title" value="{{ $page->title ?? '' }}">
                                 </div>
                             </div>
                             <div class="col-6">
@@ -50,7 +50,7 @@
                         </div>
 
                         <label for="summernote">Content</label>
-                        <textarea id="summernote" name="content" required class="editor-height"></textarea>
+                        <textarea id="summernote" name="content" class="editor-height"></textarea>
 
                         <div class="mt-2 mb-5">
                             <button type="submit" class="btn btn-info">Save changes</button>

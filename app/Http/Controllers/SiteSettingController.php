@@ -10,10 +10,7 @@ class SiteSettingController extends Controller
 {
     public function index()
     {
-        $siteSettings = SiteSetting::firstOrCreate([
-            'display_name' => null,
-
-        ]);
+        $siteSettings = SiteSetting::firstOrCreate([]);
         $sponsors = Sponsor::all();
 
         return view('site-setting.index')
@@ -30,7 +27,6 @@ class SiteSettingController extends Controller
 
     public function storeSponsor(Request $request)
     {
-        dd($request->all());
         $request->validate([
             'name' => ['required']
         ]);
@@ -68,6 +64,14 @@ class SiteSettingController extends Controller
         return redirect()->route('site-setting');
     }
 
+    public function deleteSponsor($id)
+    {
+        $sponsor = Sponsor::findOrFail($id);
+        $sponsor->delete();
+
+        return redirect()->route('site-setting');
+    }
+
     public function updateSiteName(Request $request)
     {
         if (!!$request->get('name')) {
@@ -75,6 +79,7 @@ class SiteSettingController extends Controller
             $siteSetting->display_name = $request->get('name');
             $siteSetting->save();
         }
+
         return redirect()->route('site-setting');
     }
 

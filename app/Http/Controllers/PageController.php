@@ -79,14 +79,18 @@ class PageController extends Controller
     public function updatePage(Request $request, $slug)
     {
         $page = Page::where('slug', $slug)->firstOrFail();
-        $data = $request->only(['content', 'banner', 'footerImage']);
+        $data = $request->only(['content', 'banner', 'footerImage', 'title']);
 
         if ($request->banner) {
             $data['banner'] = $request->banner->store('', 'public');
         }
 
         if ($request->footerImage) {
-            $data['footer_image'] = $request->footerImage->store('', 'public');
+            $data['footer_image'] = $request->footerImage->store('', 'images');
+        }
+
+        if (!$data['title']) {
+            unset($data['title']);
         }
 
         unset($request);

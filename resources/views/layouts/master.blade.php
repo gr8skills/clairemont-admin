@@ -48,8 +48,6 @@
             min-height: 600px !important;
         }
     </style>
-{{--    =======================Angular JS=========================--}}
-    <script src="{{ asset('core-assets/angular.min.js') }}"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

@@ -14,7 +14,7 @@
     </style>
 @stop
 
-@section('content-header', 'Add sponsor')
+@section('content-header', 'Add a sponsor')
 
 
 @section('content')
@@ -24,7 +24,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">Sponsor name</label>
-                    <input type="text" name="name" class="form-control">
+                    <input type="text" name="name" id="name" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="displayName">Image</label><br/>
