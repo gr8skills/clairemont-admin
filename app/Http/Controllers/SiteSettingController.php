@@ -92,4 +92,14 @@ class SiteSettingController extends Controller
         }
         return redirect()->route('site-setting');
     }
+
+    public function toggleDisplaySponsor()
+    {
+        $setting = SiteSetting::firstOrCreate();
+        $setting->display_sponsors = $setting->display_sponsors === SiteSetting::DISPLAY_SPONSOR_ON
+            ? SiteSetting::DISPLAY_SPONSOR_OFF
+            : SiteSetting::DISPLAY_SPONSOR_ON;
+        $setting->save();
+        return response()->json($setting, 201);
+    }
 }

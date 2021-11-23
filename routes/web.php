@@ -7,7 +7,7 @@ Route::get('/unauthorized', [App\Http\Controllers\HomeController::class, 'unauth
 
 Route::middleware('auth')->group(function () {
 //    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::redirect('/' , '/pages/about');
+    Route::redirect('/', '/pages/about');
 
     Route::prefix('pages')->group(function () {
         Route::get('/about', [\App\Http\Controllers\PageController::class, 'about'])->name('about');
@@ -36,4 +36,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/sponsors/edit', [\App\Http\Controllers\SiteSettingController::class, 'editSponsor'])->name('sponsors-edit');
     Route::get('/sponsors/{id}/delete', [\App\Http\Controllers\SiteSettingController::class, 'deleteSponsor'])->name('sponsors-delete');
     Route::post('/sponsors/update', [\App\Http\Controllers\SiteSettingController::class, 'updateSponsor'])->name('sponsors-update');
-    });
+    Route::get('/sponsors/toggle-display', [\App\Http\Controllers\SiteSettingController::class, 'toggleDisplaySponsor'])->name('sponsors-toggle-display');
+});

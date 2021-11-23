@@ -39,11 +39,10 @@
 
 @section('content-header', 'Site setting')
 
-
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{route('site-setting-update-name')}}" method="post">
+            <form action="{{ route('site-setting-update-name') }}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="name">Site display name</label>
@@ -97,6 +96,11 @@
         </div>
         <div class="card-body">
             @if($sponsors->count() > 0)
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="toggleSponsorsDisplay" @if($setting->display_sponsors === 1) checked @endif> Display sponsors
+                    </label>
+                </div>
                 @foreach($sponsors as $sponsor)
                     <div class="d-flex flex-row align-items-center">
                         <div class="sponsor">
@@ -122,6 +126,8 @@
 
 @section('page-scripts')
     <script>
+        var request = undefined;
+
         $('#logoSelect').on('click', function () {
             $('#logo').click()
         });
@@ -131,6 +137,22 @@
                 var imgSrc = URL.createObjectURL(evt.target.files[0]);
                 $('#logo-placeholder').find('img').removeClass('d-none').attr('src', imgSrc);
             }
+        });
+
+        $('#toggleSponsorsDisplay').on('change', function () {
+            if (request) {
+                request.abort();
+            }
+            request = $.ajax({
+                url: '/sponsors/toggle-display',
+                dataType: 'json'
+            });
+            request.done(function (res) {
+                console.log('Request operation response - ', res);
+            });
+            request.fail(function (_, __, errMsg) {
+                console.log('Network request failed with the following error - ', errMsg);
+            })
         });
     </script>
 @endsection
