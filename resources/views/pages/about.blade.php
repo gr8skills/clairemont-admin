@@ -44,8 +44,8 @@
                                     <td>{{ $count }}</td>
                                     <td>{{ ucwords($page->title) }}</td>
                                     <td>
-                                        <a href="{{ config('app.front_url') }}/{{$page->category->name}}/{{ $page->path }}"
-                                           target="_blank">{{ config('app.front_url') }}/{{$page->category->name}}/{{ $page->path }}</a>
+                                        <a href="{{ config('app.front_url') }}{{$page->category->name}}/{{ $page->link }}"
+                                           target="_blank">{{ config('app.front_url') }}{{$page->category->name}}/{{ $page->link }}</a>
                                     </td>
                                     <td class="text-right">
                                         <a href="{{ route('page-edit', $page->slug) }}" class="btn btn-sm btn-info @if($page->completed === 1) disabled @endif">

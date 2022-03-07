@@ -54,6 +54,103 @@
                         value="{{$setting->display_name ?? ''}}"
                     >
                 </div>
+                <div class="form-group">
+                    <label for="name">Portal URL</label>
+                    <input
+                        id="portal"
+                        class="form-control"
+                        type="text"
+                        name="portal_url"
+                        value="{{$setting->portal_url ?? ''}}"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="name">Social Media Links</label>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            <input
+                                id="portal"
+                                class="form-control"
+                                type="text"
+                                name="facebook_url"
+                                value="{{$setting->facebook_url ?? ''}}"
+                                placeholder="{{$setting->facebook_url ?? 'Facebook'}}"
+                            >
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <input
+                                id="portal"
+                                class="form-control"
+                                type="text"
+                                name="instagram_url"
+                                value="{{$setting->instagram_url ?? ''}}"
+                                placeholder="{{$setting->instagram_url ?? 'Instagram'}}"
+                            >
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <input
+                                id="twitter_url"
+                                class="form-control"
+                                type="text"
+                                name="twitter_url"
+                                value="{{$setting->twitter_url ?? ''}}"
+                                placeholder="{{$setting->twitter_url ?? 'Twitter'}}"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name">Phone Numbers</label>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <input
+                                id="primary_section_phone"
+                                class="form-control"
+                                type="text"
+                                name="primary_section_phone"
+                                value="{{$setting->primary_section_phone ?? ''}}"
+                                placeholder="{{$setting->primary_section_phone ?? 'Primary Section Phone'}}"
+                            >
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <input
+                                id="secondary_section_phone"
+                                class="form-control"
+                                type="text"
+                                name="secondary_section_phone"
+                                value="{{$setting->secondary_section_phone ?? ''}}"
+                                placeholder="{{$setting->secondary_section_phone ?? 'Secondary Section Phone'}}"
+                            >
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="name">School Email</label>
+                        <input
+                            id="school_email"
+                            class="form-control"
+                            type="text"
+                            name="school_email"
+                            value="{{$setting->school_email ?? ''}}"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="name">School Address</label>
+                        <input
+                            id="school_address"
+                            class="form-control"
+                            type="text"
+                            name="school_address"
+                            value="{{$setting->school_address ?? ''}}"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="summernote">About The Lagoon School</label>
+                        <textarea id="summernote" name="content" class="editor-height" placeholder="About The Lagoon School"></textarea>
+                    </div>
+
+                </div>
                 <div>
                     <button class="btn btn-sm btn-info" type="submit" id="saveSetting">Save</button>
                 </div>
@@ -126,6 +223,9 @@
 
 @section('page-scripts')
     <script>
+        var content = "{!! addcslashes($setting->about_school ?? '', '"') !!}";
+        $('#summernote').summernote('pasteHTML', content).addClass('editor-height');
+
         var request = undefined;
 
         $('#logoSelect').on('click', function () {

@@ -38,6 +38,17 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                                <div class="col-md-6">
+                                    <label for="link">Relative Link</label>
+                                    <input type="text" class="form-control" title="link" name="link" readonly value="{{ config('app.front_url') }}{{$page->category->name}}/">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="link">Path</label>
+                                    <input type="text" class="form-control" title="link" name="link" value="{{$page->link}}" placeholder="{{$page->link?$page->link:'Path'}}">
+                                </div>
+
+                        </div>
 
                         <div class="form-group">
                             <label for="banner">Banner</label>

@@ -77,6 +77,15 @@ class SiteSettingController extends Controller
         if (!!$request->get('name')) {
             $siteSetting = SiteSetting::firstOrNew([]);
             $siteSetting->display_name = $request->get('name');
+            $siteSetting->portal_url = $request->get('portal_url');
+            $siteSetting->facebook_url = $request->get('facebook_url');
+            $siteSetting->instagram_url = $request->get('instagram_url');
+            $siteSetting->twitter_url = $request->get('twitter_url');
+            $siteSetting->primary_section_phone = $request->get('primary_section_phone');
+            $siteSetting->secondary_section_phone = $request->get('secondary_section_phone');
+            $siteSetting->school_email = $request->get('school_email');
+            $siteSetting->school_address = $request->get('school_address');
+            $siteSetting->about_school = $request->get('content');
             $siteSetting->save();
         }
 
