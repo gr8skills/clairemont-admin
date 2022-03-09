@@ -45,7 +45,7 @@ class AddContentsSlotToPagesTable extends Migration
                 'content5'=>'NAWA has entrusted the spiritual, doctrinal and moral formation of the students, staff and parents of the school to Opus Dei, a personal prelature in the Catholic Church. Thus the spiritual, doctrinal and moral formation given in the school is Catholic oriented. Opus Dei is Latin for ‘work of God’. It is “a Catholic institution founded by Saint Josemaría Escrivá. Its mission is to spread the message that work and the circumstances of everyday life are occasions for growing closer to God, for serving others, and for improving society.”',
                 'content6'=>'The message of Opus Dei is sanctification of work. It is to convert our daily noble activities into sacrifice offered to God. It has to do with working well and putting in ones best. The prelature, however does not assume legal responsibility for the school. We groom our students to always give their best. Their professional work in school is to study.Our Christian identity is incorporated in every aspect of our curriculum. Our students, right from the primary section, learn to serve God out of love by serving their fellow men. They do not just know what it is to be good, they practice it by being charitable to those they come across in their day-to-day activities. Thus our curriculum is such that our students are helped to understand their roles in transforming our great country, Nigeria and the world as a whole.',
             ];
-            $about = \App\Models\Page::where(['id'=>1, 'page_category_id'=>1])->get();
+            $about = \App\Models\Page::where(['id'=>1, 'page_category_id'=>1])->first();
             $about->update($default);
         }
     }
