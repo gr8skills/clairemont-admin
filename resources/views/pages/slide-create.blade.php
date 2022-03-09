@@ -120,7 +120,7 @@
             request.done(function(resp) {
                 unBlockPage();
                 toastAlert('Slide image has been uploaded', 'Success', 'success');
-                redirect('/pages/landing-page');
+                redirect('/pages/index');
             });
 
             request.fail(function(_, __, errMsg) {
