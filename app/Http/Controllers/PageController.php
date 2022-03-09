@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\SlideImage;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -14,8 +15,10 @@ class PageController extends Controller
     {
         $page = Page::where('slug','LIKE','%'.'landing-page'.'%')->first();
         $pages = Page::where('page_category_id', $page->page_category_id)->with('category')->get();
+        $slideImages = SlideImage::all();
         return view('pages.index')->with([
-            'pages' => $pages
+            'pages' => $pages,
+            'slideImages' => $slideImages
         ]);
     }
 

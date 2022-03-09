@@ -44,4 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/sponsors/{id}/delete', [\App\Http\Controllers\SiteSettingController::class, 'deleteSponsor'])->name('sponsors-delete');
     Route::post('/sponsors/update', [\App\Http\Controllers\SiteSettingController::class, 'updateSponsor'])->name('sponsors-update');
     Route::get('/sponsors/toggle-display', [\App\Http\Controllers\SiteSettingController::class, 'toggleDisplaySponsor'])->name('sponsors-toggle-display');
+    Route::get('/create-slide', [\App\Http\Controllers\SlideImageController::class, 'create'])->name('slide-create');
+    Route::post('/store-slide', [\App\Http\Controllers\SlideImageController::class, 'store']);
+    Route::delete('/delete-slide/{id}', [\App\Http\Controllers\SlideImageController::class, 'destroy'])->name('slide-delete');
 });

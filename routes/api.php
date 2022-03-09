@@ -49,3 +49,4 @@ Route::get('/sponsors', [\App\Http\Controllers\Api\SiteSettingController::class,
 Route::get('/articles/{slug}', [App\Http\Controllers\Api\ArticlesController::class, 'show']);
 Route::get('/articles', [App\Http\Controllers\Api\ArticlesController::class, 'index']);
 Route::get('/landing', [App\Http\Controllers\Api\LandingPagesController::class, 'home']);
+Route::get('/slide-images', [\App\Http\Controllers\Api\SlideImageController::class, 'index']);
