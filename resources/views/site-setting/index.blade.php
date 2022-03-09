@@ -136,6 +136,16 @@
                         >
                     </div>
                     <div class="form-group">
+                        <label for="name">School Head</label>
+                        <input
+                            id="school_head"
+                            class="form-control"
+                            type="text"
+                            name="school_head"
+                            value="{{$setting->school_head ?? ''}}"
+                        >
+                    </div>
+                    <div class="form-group">
                         <label for="name">School Address</label>
                         <input
                             id="school_address"

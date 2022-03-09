@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('page-title', 'About')
+@section('page-title', 'Landing Page')
 
 @section('plugin-styles')
     <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
@@ -11,14 +11,14 @@
 @section('page-styles')
 @stop
 
-@section('content-header', 'About')
+@section('content-header', 'Landing Page')
 
 @section('content')
-    <div class="row" id="aboutPageList">
+    <div class="row" id="studentLifePageList">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">About pages</h3>
+                    <h3 class="card-title">Landing page</h3>
                 </div>
 
                 <div class="card-body">
@@ -44,13 +44,13 @@
                                     <td>{{ $count }}</td>
                                     <td>{{ ucwords($page->title) }}</td>
                                     <td>
-                                        <a href="{{ config('app.front_url') }}/{{$page->category->name}}/{{ $page->link }}"
-                                           target="_blank">{{ config('app.front_url') }}/{{$page->category->name}}/{{ $page->link }}</a>
+                                        <a href="{{ config('app.front_url') }}/{{$page->category->name}}/{{ $page->path }}"
+                                           target="_blank">{{ config('app.front_url') }}/{{$page->category->name}}/{{ $page->path }}</a>
                                     </td>
                                     <td class="text-right">
                                         <a href="{{ route('page-edit', $page->slug) }}" class="btn btn-sm btn-info @if($page->completed === 1) disabled @endif">
                                             <i class="far fa-edit mr-1"></i>Edit</a>
-{{--                                        <a href="{{ route('page-delete', $page->slug) }}" class="btn btn-sm btn-danger"><i class="far fa-trash-alt mr-1"></i>Delete</a>--}}
+                                        {{--                                        <a href="{{ route('page-delete', $page->slug) }}" class="btn btn-sm btn-danger"><i class="far fa-trash-alt mr-1"></i>Delete</a>--}}
                                     </td>
                                 </tr>
                             @endforeach
@@ -83,7 +83,7 @@
     <script>
         $("#example1").DataTable({
             "responsive": true, "lengthChange": false, "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"], "pageLength": 5
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     </script>
 @endsection

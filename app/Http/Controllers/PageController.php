@@ -7,6 +7,18 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+
+
+    //index pages
+    public function index()
+    {
+        $page = Page::where('slug','LIKE','%'.'landing-page'.'%')->first();
+        $pages = Page::where('page_category_id', $page->page_category_id)->with('category')->get();
+        return view('pages.index')->with([
+            'pages' => $pages
+        ]);
+    }
+
     // About Pages
     public function about()
     {
@@ -79,13 +91,30 @@ class PageController extends Controller
     public function updatePage(Request $request, $slug)
     {
         $page = Page::where('slug', $slug)->firstOrFail();
-        $data = $request->only(['content', 'banner', 'footerImage', 'title', 'link']);
+        $data = $request->only(['content', 'banner', 'footerImage', 'title', 'link','content2','content3','content4','content5','content6','content7','content8','content9','content10','title1','title2','title3','img1','img2','img3','img4','img5']);
 
         if ($request->banner) {
-            $data['banner'] = $request->banner->store('', 'public');
+            //delete previous banner
+            $prevBanner = $page->banner;
+            $path = public_path().'/images/'.$prevBanner;
+            if (file_exists($path)){
+                unlink($path);
+            }
+
+            $data['banner'] = $request->banner->store('', 'images');
         }
 
         if ($request->footerImage) {
+            //delete previous banner
+            $prevImage = $page->footer_image;
+            if (!is_null($prevImage)){
+                $path = public_path().'/images/'.$prevImage;
+                if (file_exists($path)){
+                    unlink($path);
+                }
+            }
+
+
             $data['footer_image'] = $request->footerImage->store('', 'images');
         }
 
@@ -108,5 +137,9 @@ class PageController extends Controller
 
         $redirectPath = str_replace(' ', '-', $page->category->name);
         return redirect('/pages/' . $redirectPath);
+    }
+
+    public function indexPage(){
+
     }
 }

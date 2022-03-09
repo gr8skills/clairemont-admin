@@ -18,7 +18,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Student Life pages</h3>
+                    <h3 class="card-title">Parents pages</h3>
                 </div>
 
                 <div class="card-body">

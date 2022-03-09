@@ -46,3 +46,6 @@ Route::get('/news/{slug}', [App\Http\Controllers\Api\NewsController::class, 'sho
 Route::get('/news', [App\Http\Controllers\Api\NewsController::class, 'index']);
 Route::get('/site-settings', [\App\Http\Controllers\Api\SiteSettingController::class, 'index']);
 Route::get('/sponsors', [\App\Http\Controllers\Api\SiteSettingController::class, 'sponsors']);
+Route::get('/articles/{slug}', [App\Http\Controllers\Api\ArticlesController::class, 'show']);
+Route::get('/articles', [App\Http\Controllers\Api\ArticlesController::class, 'index']);
+Route::get('/landing', [App\Http\Controllers\Api\LandingPagesController::class, 'home']);

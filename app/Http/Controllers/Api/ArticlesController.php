@@ -3,21 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Articles;
 use App\Models\News;
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class ArticlesController extends Controller
 {
     public function index()
     {
-        $news = News::orderBy('id', 'desc')->get();
+        $news = Articles::orderBy('id', 'desc')->get();
         return response()->json($news, 200);
     }
 
 
     public function show($slug)
     {
-        $news = News::where('slug', $slug)->firstOrFail();
+        $news = Articles::where('slug', $slug)->firstOrFail();
         return response()->json($news);
     }
 }

@@ -16,18 +16,25 @@ Route::middleware('auth')->group(function () {
         Route::get('/student-life', [\App\Http\Controllers\PageController::class, 'studentLife'])->name('student-life');
         Route::get('/giving', [\App\Http\Controllers\PageController::class, 'giving'])->name('giving');
         Route::get('/parents', [\App\Http\Controllers\PageController::class, 'parents'])->name('parents');
+        Route::get('/index', [\App\Http\Controllers\PageController::class, 'index'])->name('landing-page');
 
         Route::get('/edit/{slug}', [\App\Http\Controllers\PageController::class, 'editPage'])->name('page-edit');
         Route::post('/edit/{slug}', [\App\Http\Controllers\PageController::class, 'updatePage']);
         Route::delete('/delete/{slug}', [\App\Http\Controllers\PageController::class, 'deletePage'])->name('page-delete');
     });
+    Route::get('/page/update-index', [\App\Http\Controllers\PageController::class, 'indexPage'])->name('page-update-name');
     Route::get('/news/{slug}/edit', [\App\Http\Controllers\NewsController::class, 'edit'])->name('news-edit');
     Route::post('/news/{slug}/edit', [\App\Http\Controllers\NewsController::class, 'update']);
     Route::get('/news/{slug}/delete', [\App\Http\Controllers\NewsController::class, 'destroy'])->name('news-delete');
     Route::get('/news/create', [\App\Http\Controllers\NewsController::class, 'create'])->name('news-create');
     Route::post('/news', [\App\Http\Controllers\NewsController::class, 'store'])->name('store-news');
     Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news');
-    Route::get('/articles', [\App\Http\Controllers\ArticleController::class, 'index'])->name('article');
+    Route::get('/article/{slug}/edit', [\App\Http\Controllers\ArticleController::class, 'edit'])->name('article-edit');
+    Route::post('/article/{slug}/edit', [\App\Http\Controllers\ArticleController::class, 'update']);
+    Route::get('/article/{slug}/delete', [\App\Http\Controllers\ArticleController::class, 'destroy'])->name('article-delete');
+    Route::get('/article/create', [\App\Http\Controllers\ArticleController::class, 'create'])->name('article-create');
+    Route::post('/article', [\App\Http\Controllers\ArticleController::class, 'store'])->name('store-article');
+    Route::get('/articles', [\App\Http\Controllers\ArticleController::class, 'index'])->name('articles');
     Route::get('/site-setting', [\App\Http\Controllers\SiteSettingController::class, 'index'])->name('site-setting');
     Route::post('/site-setting/update-name', [\App\Http\Controllers\SiteSettingController::class, 'updateSiteName'])->name('site-setting-update-name');
     Route::post('/site-setting/update-logo', [\App\Http\Controllers\SiteSettingController::class, 'updateSiteLogo'])->name('site-setting-update-logo');

@@ -47,6 +47,10 @@
         .editor-height {
             min-height: 600px !important;
         }
+        .editor-height-2 {
+            min-height: 250px !important;
+            min-width: 95%;
+        }
     </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

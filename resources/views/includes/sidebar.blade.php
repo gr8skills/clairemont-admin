@@ -23,7 +23,7 @@
 {{--                        || $route === 'student-life' || $route === 'giving' || $route === 'parents' ? 'menu-open' : ''}}">--}}
                 <li class="nav-item menu-open">
                     <a href="" class="nav-link {{$route === 'about' || $route === 'academics' || $route === 'admission'
-                        || $route === 'student-life' || $route === 'giving' || $route === 'parents'
+                        || $route === 'student-life' || $route === 'giving' || $route === 'parents' || $route === 'index'
                         || $route === 'page-edit' ? 'active' : ''}}">
                         <i class="nav-icon fas fa-file"></i>
                         <p>
@@ -32,6 +32,12 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('landing-page')}}" class="nav-link {{ $route === 'index' ? 'active' : '' }}">
+                                <i class="fa fa-circle-notch nav-icon"></i>
+                                <p>Landing Page</p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{route('about')}}" class="nav-link {{ $route === 'about' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
@@ -53,7 +59,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('articles') }}" class="nav-link {{ $route === 'articles' ? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Faith</p>
                             </a>
