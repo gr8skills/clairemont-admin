@@ -124,7 +124,7 @@
             });
 
             request.fail(function(_, __, errMsg) {
-                console.log('Error: ', errMsg);
+                console.log('Error: ', errMsg, '_',_, '__',__);
                 unBlockPage();
                 toastAlert('Something went wrong.', 'Error', 'error');
             });

@@ -186,8 +186,6 @@
                 request.done(function(resp, textStatus) {
                     unBlockPage();
                     console.log(textStatus);
-                    return;
-
                     if (textStatus == 'success') {
                         button.closest('.slide-card').remove();
                         modal.modal('hide');

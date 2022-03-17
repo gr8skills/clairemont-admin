@@ -99,10 +99,13 @@ class PageController extends Controller
         if ($request->banner) {
             //delete previous banner
             $prevBanner = $page->banner;
-            $path = public_path().'/images/'.$prevBanner;
-            if (file_exists($path)){
-                unlink($path);
+            if (!is_null($prevBanner)){
+                $path = public_path().'/images/'.$prevBanner;
+                if (file_exists($path)){
+                    unlink($path);
+                }
             }
+
 
             $data['banner'] = $request->banner->store('', 'images');
         }

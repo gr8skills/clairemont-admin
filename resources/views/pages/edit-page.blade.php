@@ -62,38 +62,43 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label for="summernote">Content</label>
-                                <textarea id="summernote" name="content" class="editor-height-2"></textarea>
+                                <textarea id="summernote" name="content" class="editor-height"></textarea>
                             </div>
+
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <label for="summernote2">Content2</label>
                                 <textarea id="summernote2" name="content2" class="editor-height-2">
                                     {!! addcslashes($page->content2 ?? '', '"') !!}
                                 </textarea>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6">
                                 <label for="summernote3">Content3</label>
                                 <textarea id="summernote3" name="content3" class="editor-height-2">
                                     {!! addcslashes($page->content3 ?? '', '"') !!}
                                 </textarea>
                             </div>
+
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <label for="summernote4">Content4</label>
                                 <textarea id="summernote4" name="content4" class="editor-height-2">
                                     {!! addcslashes($page->content4 ?? '', '"') !!}
                                 </textarea>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6">
                                 <label for="summernote5">Content5</label>
                                 <textarea id="summernote5" name="content5" class="editor-height-2">
                                     {!! addcslashes($page->content5 ?? '', '"') !!}
                                 </textarea>
                             </div>
+
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <label for="summernote6">Content6</label>
                                 <textarea id="summernote6" name="content6" class="editor-height-2">

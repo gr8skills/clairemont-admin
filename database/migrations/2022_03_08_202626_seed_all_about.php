@@ -47,23 +47,26 @@ class SeedAllAbout extends Migration
         $meetHead->update($default);
 
         $default2 = [
-            'content'=>'The Lagoon School is open to girls of all cultural, religious and ethnic backgrounds. Our
+            'content'=>'<p className={classes[\'intro-text\']}>
+                    The Lagoon School is open to girls of all cultural, religious and ethnic backgrounds. Our
                     educational model is based on our mission statement: Partnership with parents to give an all-round
                     education to each child based on the dignity of the human person, integrity, leadership qualities
-                    and academic excellence.',
-            'content2'=>'The Lagoon School believes that education is not just about learning subjects but also about learning
+                    and academic excellence.
+                </p>
+
+                <p className={`${classes[\'regular-text\']} mb-5`}>The Lagoon School believes that education is not just about learning subjects but also about learning
                     the value of being a good person. We build characters, form and develop the total person. Thus our
                     curriculum is geared towards developing the intellectual, physiological, psychological, ethical,
                     social and spiritual dimensions of the learners. Our students have learnt to take responsibility for
                     their learning. Each child is empowered to achieve the best in whatever task she engages in. Our
-                    driving force is a desire to achieve a Christian identity for the school.',
-            'content3'=>'',
-            'content4'=>'',
-            'content5'=>'',
-            'content6'=>'',
+                    driving force is a desire to achieve a Christian identity for the school.</p>',
         ];
         $philosophy = Page::where('slug','LIKE','%'.'educational-philosophy'.'%')->first();
         $philosophy->update($default2);
+
+
+
+
 
     }
 
