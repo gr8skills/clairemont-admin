@@ -64,7 +64,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="summernote">Content</label>
-                                <textarea id="summernote" name="content" class="editor-height"></textarea>
+                                <textarea id="summernote" name="content" class="editor-height-2"></textarea>
                             </div>
 
                         </div>
@@ -130,7 +130,7 @@
         {{--var content4 = "{!! addcslashes($page->content4 ?? '', '"') !!}";--}}
         {{--var content5 = "{!! addcslashes($page->content5 ?? '', '"') !!}";--}}
         {{--var content6 = "{!! addcslashes($page->content6 ?? '', '"') !!}";--}}
-        $('#summernote').summernote('pasteHTML', content).addClass('editor-height');
+        $('#summernote').summernote('pasteHTML', content).addClass('editor-height-2');
         // $('#summernote2').summernote('pasteHTML', content2).addClass('editor-height-2');
         // $('#summernote3').summernote('pasteHTML', content3).addClass('editor-height-2');
         // $('#summernote4').summernote('pasteHTML', content4).addClass('editor-height-2');
