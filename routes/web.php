@@ -27,8 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/news/{slug}/edit', [\App\Http\Controllers\NewsController::class, 'update']);
     Route::get('/news/{slug}/delete', [\App\Http\Controllers\NewsController::class, 'destroy'])->name('news-delete');
     Route::get('/news/create', [\App\Http\Controllers\NewsController::class, 'create'])->name('news-create');
-    Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news'); //moved
     Route::post('/news', [\App\Http\Controllers\NewsController::class, 'store'])->name('store-news');
+    Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news');
     Route::get('/article/{slug}/edit', [\App\Http\Controllers\ArticleController::class, 'edit'])->name('article-edit');
     Route::post('/article/{slug}/edit', [\App\Http\Controllers\ArticleController::class, 'update']);
     Route::get('/article/{slug}/delete', [\App\Http\Controllers\ArticleController::class, 'destroy'])->name('article-delete');

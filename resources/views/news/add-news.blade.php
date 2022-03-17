@@ -28,10 +28,14 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
+                        @if(isset($message))
+                            <h5 class="alert-danger alert-dismissible row">{{$message}}</h5>
+                        @endif
                         <h3 class="card-title text-capitalize">Add news</h3>
                         <a class="btn btn-danger btn-sm" href="{{route('news')}}">Cancel</a>
                     </div>
                 </div>
+
                 <div class="card-body">
                     <form action="{{ route('news') }}" enctype="multipart/form-data" method="post">
                         @csrf

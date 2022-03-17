@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -37,6 +38,11 @@ class NewsController extends Controller
         $data = $request->all();
         $data['slug'] = Str::of($request->get('title'))->slug('-');
         if ($request->hasFile('thumb')) {
+            $file = $request->file('thumb');
+            if($file->getSize() > 2048000){
+                $msg = 'File too large';
+                return back()->with(['message'=>$msg]);
+            };
             $data['thumb'] = $request->file('thumb')->store('', 'images');
         }
 
